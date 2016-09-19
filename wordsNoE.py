@@ -8,32 +8,30 @@ totalWords = 0
 # Define input file
 fin = open('words.txt')
 
-# Read input file
-fin.readline()
-
 print ('Words Containing No Letter E\n')
+
 
 # Read file, check character count in each line
 def has_no_e(word):
-    if 'e' in word:
-        return False
+    if 'e' in word:     # check if there is the letter in in the word
+        return False    # the letter e has been found in the word, so "has no e" result is false
     else:
-        return True
+        return True     # the letter e is not found in the word, so "has no e" result is true
+
 
 for line in fin:
-    word = line.strip()  # line.strip will strip out any blank spaces
-    totalWords += 1
-    has_no_e(word)
-    if has_no_e(word) is True:
-        print word
-        noEcount += 1
-    else:
-        wordsWithE += 1
+    word = line.strip()         # line.strip will strip out any blank spaces
+    if word != '    ':
+        totalWords += 1         # count total words in file
+        has_no_e(word)
+        if has_no_e(word) is True:
+            noEcount += 1       # count words with no letter e and print out the word
+            print word
+        else:
+            wordsWithE += 1     # count words with the letter e
 
 percent = 100 * (noEcount / float(totalWords))
-print noEcount
-print wordsWithE
-print ('\nTotal number of words in file containing the letter E: ' + str(wordsWithE))
 print ('\nTotal number of words in file with no letter E: ' + str(noEcount))
-print ('\nTotal number of words in file: ' + str(wordsWithE + noEcount))
-print ('\nPercentage of words in file with no letter E is: ' + str(round(percent, 2)) + '%')
+print ('\nTotal number of words in file containing the letter E: ' + str(wordsWithE))
+print ('\nTotal number of words in file: ' + str(totalWords))
+print ('\nPercentage of words in file with no letter E is: ' + str(round(percent, 4)) + '%')
