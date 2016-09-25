@@ -1,4 +1,5 @@
-# This program will read a text file of words and print out any words do not contain the letter E
+# Phyllis Torres
+#  This program will read a text file of words and print out any words do not contain the letter E
 
 # Define variables
 noEcount = 0
